@@ -11,7 +11,7 @@ function App() {
   const [url, setUrl] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/")
+    fetch("https://sparkly-sprinkle-range.glitch.me/")
       .then((res) => res.json())
       .then((data) => setVideos(data));
   }, []);
@@ -32,7 +32,7 @@ function App() {
         url: extractVideoKey(url),
         rating: 1,
       };
-      fetch("http://127.0.0.1:5000/addVideo", {
+      fetch("https://sparkly-sprinkle-range.glitch.me/addVideo", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function App() {
 
   const handleDeleteVideo = (key) => {
     setVideos(videos.filter((video) => video.v_id !== key));
-    fetch(`http://127.0.0.1:5000/delete/${key}`, {
+    fetch(`https://sparkly-sprinkle-range.glitch.me/delete/${key}`, {
       method: "delete",
       body: JSON.stringify(key),
     })
